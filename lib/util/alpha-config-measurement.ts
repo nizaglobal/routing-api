@@ -1,6 +1,6 @@
-import { ChainId, Currency, CurrencyAmount } from '@uniswap/sdk-core'
-import { Protocol } from '@uniswap/router-sdk'
-import { log, metric, MetricLoggerUnit, SwapRoute } from '@uniswap/smart-order-router'
+import { ChainId, Currency, CurrencyAmount } from '@nizaglobal/sdk-core'
+import { Protocol } from '@nizaglobal/router-sdk'
+import { log, metric, MetricLoggerUnit, SwapRoute } from '@nizaglobal/smart-order-router'
 
 export const getDistribution = (distributionPercent: number) => {
   const percents: Array<number> = new Array<number>()

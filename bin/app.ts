@@ -1,4 +1,4 @@
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@nizaglobal/sdk-core'
 import * as cdk from 'aws-cdk-lib'
 import { CfnOutput, SecretValue, Stack, StackProps, Stage, StageProps } from 'aws-cdk-lib'
 import * as chatbot from 'aws-cdk-lib/aws-chatbot'
@@ -86,7 +86,7 @@ export class RoutingAPIPipeline extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
 
-    const code = CodePipelineSource.gitHub('Uniswap/routing-api', 'main', {
+    const code = CodePipelineSource.gitHub('nizaglobal/routing-api', 'main', {
       authentication: SecretValue.secretsManager('github-token-2'),
     })
 
@@ -120,7 +120,7 @@ export class RoutingAPIPipeline extends Stack {
     const jsonRpcProvidersSecret = sm.Secret.fromSecretAttributes(this, 'RPCProviderUrls', {
       // The main secrets use our Infura RPC urls
       secretCompleteArn:
-        'arn:aws:secretsmanager:us-east-2:644039819003:secret:routing-api-rpc-urls-json-primary-ixS8mw',
+        'arn:aws:secretsmanager:eu-central-1:151054735049:secret:routing-api-rpc-urls-json-primary-ixS8mw',
 
       /*
       The backup secrets mostly use our Alchemy RPC urls
@@ -130,43 +130,43 @@ export class RoutingAPIPipeline extends Stack {
       we must set the multicall chunk size to 50 so that optimism
       does not bug out on Alchemy's end
       */
-      //secretCompleteArn: arn:aws:secretsmanager:us-east-2:644039819003:secret:routing-api-rpc-urls-json-backup-D2sWoe
+      //secretCompleteArn: arn:aws:secretsmanager:eu-central-1:151054735049:secret:routing-api-rpc-urls-json-backup-D2sWoe
     })
 
     // Secret that controls the access to the debugging query string params
     const unicornSecrets = sm.Secret.fromSecretAttributes(this, 'DebugConfigUnicornSecrets', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:debug-config-unicornsecrets-jvmCsq',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:debug-config-unicornsecrets-jvmCsq',
     })
 
     const tenderlyCreds = sm.Secret.fromSecretAttributes(this, 'TenderlyCreds', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:tenderly-api-wQaI2R',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:tenderly-api-wQaI2R',
     })
 
     const ethGasStationInfoUrl = sm.Secret.fromSecretAttributes(this, 'ETHGasStationUrl', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:eth-gas-station-info-url-ulGncX',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:eth-gas-station-info-url-ulGncX',
     })
 
     const pinataApi = sm.Secret.fromSecretAttributes(this, 'PinataAPI', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:pinata-api-key-UVLAfM',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:pinata-api-key-UVLAfM',
     })
     const route53Arn = sm.Secret.fromSecretAttributes(this, 'Route53Arn', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:Route53Arn-elRmmw',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:Route53Arn-elRmmw',
     })
 
     const pinataSecret = sm.Secret.fromSecretAttributes(this, 'PinataSecret', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:pinata-secret-svGaPt',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:pinata-secret-svGaPt',
     })
 
     const hostedZone = sm.Secret.fromSecretAttributes(this, 'HostedZone', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:hosted-zone-JmPDNV',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:hosted-zone-JmPDNV',
     })
 
     const internalApiKey = sm.Secret.fromSecretAttributes(this, 'internal-api-key', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:routing-api-internal-api-key-Z68NmB',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:routing-api-internal-api-key-Z68NmB',
     })
 
     const routingApiNewSecrets = sm.Secret.fromSecretAttributes(this, 'RoutingApiNewSecrets', {
-      secretCompleteArn: 'arn:aws:secretsmanager:us-east-2:644039819003:secret:RoutingApiNewSecrets-7EijpM',
+      secretCompleteArn: 'arn:aws:secretsmanager:eu-central-1:151054735049:secret:RoutingApiNewSecrets-7EijpM',
     })
 
     // Load RPC provider URLs from AWS secret
@@ -212,8 +212,8 @@ export class RoutingAPIPipeline extends Stack {
       'NIRVANA_42161',
       'ALCHEMY_42161',
       // Ethereum
-      // 'INFURA_1',
-      'QUICKNODE_1',
+      'INFURA_1',
+      // 'QUICKNODE_1',
       'NIRVANA_1',
       'ALCHEMY_1',
       'QUICKNODERETH_1',
@@ -230,9 +230,9 @@ export class RoutingAPIPipeline extends Stack {
       })
     }
 
-    // Beta us-east-2
-    const betaUsEast2Stage = new RoutingAPIStage(this, 'beta-us-east-2', {
-      env: { account: '145079444317', region: 'us-east-2' },
+    // Beta eu-central-1
+    const betaUsEast2Stage = new RoutingAPIStage(this, 'beta-eu-central-1', {
+      env: { account: '151054735049', region: 'eu-central-1' },
       jsonRpcProviders: jsonRpcProviders,
       internalApiKey: internalApiKey.secretValue.toString(),
       provisionedConcurrency: 1,
@@ -254,14 +254,14 @@ export class RoutingAPIPipeline extends Stack {
 
     this.addIntegTests(code, betaUsEast2Stage, betaUsEast2AppStage)
 
-    // Prod us-east-2
-    const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-us-east-2', {
-      env: { account: '606857263320', region: 'us-east-2' },
+    // Prod eu-central-1
+    const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-eu-central-1', {
+      env: { account: '151054735049', region: 'eu-central-1' },
       jsonRpcProviders: jsonRpcProviders,
       internalApiKey: internalApiKey.secretValue.toString(),
       provisionedConcurrency: 70,
       ethGasStationInfoUrl: ethGasStationInfoUrl.secretValue.toString(),
-      chatbotSNSArn: 'arn:aws:sns:us-east-2:644039819003:SlackChatbotTopic',
+      chatbotSNSArn: 'arn:aws:sns:eu-central-1:151054735049:SlackChatbotTopic',
       stage: STAGE.PROD,
       route53Arn: route53Arn.secretValueFromJson('arn').toString(),
       pinata_key: pinataApi.secretValueFromJson('pinata-api-key').toString(),
@@ -282,7 +282,7 @@ export class RoutingAPIPipeline extends Stack {
     const slackChannel = chatbot.SlackChannelConfiguration.fromSlackChannelConfigurationArn(
       this,
       'SlackChannel',
-      'arn:aws:chatbot::644039819003:chat-configuration/slack-channel/eng-ops-slack-chatbot'
+      'arn:aws:chatbot::151054735049:chat-configuration/slack-channel/eng-ops-slack-chatbot'
     )
 
     pipeline.buildPipeline()
@@ -376,8 +376,8 @@ const jsonRpcProviders = {
   NIRVANA_42161: process.env.NIRVANA_42161!,
   ALCHEMY_42161: process.env.ALCHEMY_42161!,
   // Ethereum
-  // INFURA_1: process.env.INFURA_1!,
-  QUICKNODE_1: process.env.QUICKNODE_1!,
+  INFURA_1: process.env.INFURA_1!,
+  // QUICKNODE_1: process.env.QUICKNODE_1!,
   NIRVANA_1: process.env.NIRVANA_1!,
   ALCHEMY_1: process.env.ALCHEMY_1!,
   // Blast
@@ -385,6 +385,9 @@ const jsonRpcProviders = {
   // INFURA_81457: process.env.INFURA_81457!,
   // Zora
   QUICKNODE_7777777: process.env.QUICKNODE_7777777!,
+  //Niza
+  INFURA_20073: process.env.INFURA_20073!,
+  INFURA_20041: process.env.INFURA_20041!,
 }
 
 // Local dev stack
@@ -407,5 +410,5 @@ new RoutingAPIStack(app, 'RoutingAPIStack', {
 })
 
 new RoutingAPIPipeline(app, 'RoutingAPIPipelineStack', {
-  env: { account: '644039819003', region: 'us-east-2' },
+  env: { account: '151054735049', region: 'eu-central-1' },
 })

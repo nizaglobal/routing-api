@@ -1,6 +1,6 @@
-import { Protocol } from '@uniswap/router-sdk'
-import { V2SubgraphProvider, V3SubgraphProvider } from '@uniswap/smart-order-router'
-import { ChainId } from '@uniswap/sdk-core'
+import { Protocol } from '@nizaglobal/router-sdk'
+import { V2SubgraphProvider, V3SubgraphProvider } from '@nizaglobal/smart-order-router'
+import { ChainId } from '@nizaglobal/sdk-core'
 
 const v3SubgraphUrlOverride = (chainId: ChainId) => {
   switch (chainId) {

@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@nizaglobal/router-sdk'
 import {
   IV2SubgraphProvider,
   IV3SubgraphProvider,
@@ -7,9 +7,9 @@ import {
   MetricLoggerUnit,
   V2SubgraphPool,
   V3SubgraphPool,
-} from '@uniswap/smart-order-router'
+} from '@nizaglobal/smart-order-router'
 import { S3 } from 'aws-sdk'
-import { ChainId } from '@uniswap/sdk-core'
+import { ChainId } from '@nizaglobal/sdk-core'
 import NodeCache from 'node-cache'
 import { S3_POOL_CACHE_KEY } from '../../util/pool-cache-key'
 import { PoolCachingFilePrefixes } from '../../util/poolCachingFilePrefixes'

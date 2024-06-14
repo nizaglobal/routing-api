@@ -1,5 +1,5 @@
-import { CacheMode } from '@uniswap/smart-order-router'
-import { ChainId, CurrencyAmount, Token, TradeType } from '@uniswap/sdk-core'
+import { CacheMode } from '@nizaglobal/smart-order-router'
+import { ChainId, CurrencyAmount, Token, TradeType } from '@nizaglobal/sdk-core'
 import {
   CachedRoutesBucket,
   CachedRoutesStrategy,

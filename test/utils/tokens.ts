@@ -1,5 +1,5 @@
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
-import { ChainId, Token } from '@uniswap/sdk-core'
+import { ChainId, Token } from '@nizaglobal/sdk-core'
 import {
   CachingTokenListProvider,
   DAI_ARBITRUM,
@@ -33,7 +33,7 @@ import {
   USDC_BASE,
   USDC_BASE_GOERLI,
   USDC_ZORA,
-} from '@uniswap/smart-order-router'
+} from '@nizaglobal/smart-order-router'
 import { ethers } from 'ethers'
 import NodeCache from 'node-cache'
 
