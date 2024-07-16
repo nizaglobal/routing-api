@@ -42,6 +42,11 @@ export const RETRY_OPTIONS: { [chainId: number]: AsyncRetry.Options | undefined 
     minTimeout: 100,
     maxTimeout: 1000,
   },
+  [ChainId.NIZA]: {
+    retries: 2,
+    minTimeout: 100,
+    maxTimeout: 1000,
+  },
 }
 
 export const OPTIMISTIC_CACHED_ROUTES_BATCH_PARAMS: { [protocol: string]: { [chainId: number]: BatchParams } } = {
@@ -83,6 +88,11 @@ export const OPTIMISTIC_CACHED_ROUTES_BATCH_PARAMS: { [protocol: string]: { [cha
       quoteMinSuccessRate: 0.15,
     },
     [ChainId.POLYGON]: {
+      multicallChunk: 1850,
+      gasLimitPerCall: 80_000,
+      quoteMinSuccessRate: 0.15,
+    },
+    [ChainId.NIZA]: {
       multicallChunk: 1850,
       gasLimitPerCall: 80_000,
       quoteMinSuccessRate: 0.15,
@@ -181,6 +191,11 @@ export const NON_OPTIMISTIC_CACHED_ROUTES_BATCH_PARAMS: { [protocol: string]: { 
       gasLimitPerCall: 150_000,
       quoteMinSuccessRate: 0.15,
     },
+    [ChainId.NIZA]: {
+      multicallChunk: 1850,
+      gasLimitPerCall: 80_000,
+      quoteMinSuccessRate: 0.15,
+    },
     [ChainId.MAINNET]: {
       multicallChunk: 987,
       gasLimitPerCall: 150_000,
@@ -249,6 +264,11 @@ export const GAS_ERROR_FAILURE_OVERRIDES: { [chainId: number]: FailureOverrides 
   [ChainId.CELO]: {
     gasLimitOverride: 5_000_000,
     multicallChunk: 5,
+  },
+  [ChainId.NIZA]: {
+    multicallChunk: 1850,
+    gasLimitPerCall: 80_000,
+    quoteMinSuccessRate: 0.15,
   },
   [ChainId.BLAST]: {
     gasLimitOverride: 3_000_000,
@@ -343,7 +363,7 @@ export const NEW_QUOTER_DEPLOY_BLOCK: { [chainId in ChainId]: number } = {
   [ChainId.ROOTSTOCK]: -1,
   [ChainId.BLAST]: 2370179,
   [ChainId.NIZA_TESTNET]: -1,
-  [ChainId.NIZA_LIVENET]: -1,
+  [ChainId.NIZA]: -1,
 }
 
 // 0 threshold means it's not deployed yet
@@ -372,7 +392,7 @@ export const LIKELY_OUT_OF_GAS_THRESHOLD: { [chainId in ChainId]: number } = {
   [ChainId.ROOTSTOCK]: 0,
   [ChainId.BLAST]: 17540 * 2, // 17540 is the single tick.cross cost on blast. We multiply by 2 to be safe
   [ChainId.NIZA_TESTNET]: 0,
-  [ChainId.NIZA_LIVENET]: 0,
+  [ChainId.NIZA]: 0,
 }
 
 // TODO: Move this new addresses to SOR

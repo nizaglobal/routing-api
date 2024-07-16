@@ -2473,7 +2473,7 @@ describe('quote', function () {
     [ChainId.ROOTSTOCK]: () => USDC_ON(ChainId.ROOTSTOCK),
     [ChainId.BLAST]: () => USDB_BLAST,
     [ChainId.NIZA_TESTNET]: () => null,
-    [ChainId.NIZA_LIVENET]: () => null,
+    [ChainId.NIZA]: () => USDC_ON(ChainId.NIZA),
   }
 
   const TEST_ERC20_2: { [chainId in ChainId]: () => Token | null } = {
@@ -2501,7 +2501,7 @@ describe('quote', function () {
     [ChainId.ROOTSTOCK]: () => WNATIVE_ON(ChainId.ROOTSTOCK),
     [ChainId.BLAST]: () => WNATIVE_ON(ChainId.BLAST),
     [ChainId.NIZA_TESTNET]: () => null,
-    [ChainId.NIZA_LIVENET]: () => null,
+    [ChainId.NIZA]: () => WNATIVE_ON(ChainId.NIZA),
   }
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.

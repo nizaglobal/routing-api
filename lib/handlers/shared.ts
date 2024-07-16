@@ -17,6 +17,7 @@ export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterCo
   switch (chainId) {
     case ChainId.BASE:
     case ChainId.OPTIMISM:
+    case ChainId.NIZA:
       return {
         v2PoolSelection: {
           topN: 3,
