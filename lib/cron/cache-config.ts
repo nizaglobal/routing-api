@@ -173,6 +173,20 @@ export const chainProtocols = [
   },
   {
     protocol: Protocol.V3,
+    chainId: ChainId.NIZA,
+    timeout: 90000,
+    provider: new V3SubgraphProvider(
+      ChainId.NIZA,
+      3,
+      90000,
+      true,
+      v3TrackedEthThreshold,
+      v3UntrackedUsdThreshold,
+      v3SubgraphUrlOverride(ChainId.NIZA)
+    ),
+  },
+  {
+    protocol: Protocol.V3,
     chainId: ChainId.BLAST,
     timeout: 90000,
     provider: new V3SubgraphProvider(
@@ -184,6 +198,7 @@ export const chainProtocols = [
       v3UntrackedUsdThreshold,
       v3SubgraphUrlOverride(ChainId.BLAST)
     ),
+    
   },
 
   // V2.
