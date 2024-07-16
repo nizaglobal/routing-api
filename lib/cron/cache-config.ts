@@ -198,7 +198,6 @@ export const chainProtocols = [
       v3UntrackedUsdThreshold,
       v3SubgraphUrlOverride(ChainId.BLAST)
     ),
-    
   },
 
   // V2.

@@ -1,5 +1,10 @@
 import { ChainId, Currency, CurrencyAmount } from '@nizaglobal/sdk-core'
-import { SwapOptions, SwapOptionsSwapRouter02, SwapOptionsUniversalRouter, SwapType } from '@nizaglobal/smart-order-router'
+import {
+  SwapOptions,
+  SwapOptionsSwapRouter02,
+  SwapOptionsUniversalRouter,
+  SwapType,
+} from '@nizaglobal/smart-order-router'
 import JSBI from 'jsbi'
 import { TradeTypeParam } from './schema/quote-schema'
 import { computePortionAmount, parseDeadline, parseSlippageTolerance, populateFeeOptions } from '../shared'

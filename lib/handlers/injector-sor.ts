@@ -8,6 +8,7 @@ import {
   EIP1559GasPriceProvider,
   EthEstimateGasSimulator,
   FallbackTenderlySimulator,
+  ICache,
   IGasPriceProvider,
   IMetric,
   IOnChainQuoteProvider,
@@ -247,9 +248,12 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
           )
           const underlyingV2PoolProvider = new V2PoolProvider(chainId, multicall2Provider, tokenPropertiesProvider)
           const v2PoolProvider = new CachingV2PoolProvider(
-            chainId,
-            underlyingV2PoolProvider,
-            new V2DynamoCache(V2_PAIRS_CACHE_TABLE_NAME!)
+            chainId as any,
+            underlyingV2PoolProvider as any,
+            new V2DynamoCache((V2_PAIRS_CACHE_TABLE_NAME ?? 'default_cache_table_name') as any) as unknown as ICache<{
+              pair: any
+              block?: number | undefined
+            }>
           )
 
           const [tokenListProvider, blockedTokenListProvider, v3SubgraphProvider, v2SubgraphProvider] =

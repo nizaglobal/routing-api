@@ -72,7 +72,6 @@ export class DynamoRouteCachingProvider extends IRouteCachingProvider {
       //  https://explorer.celo.org/mainnet/
       case ChainId.CELO:
         return 6
-    
 
       // https://dune.com/KARTOD/blockchains-analysis
       case ChainId.NIZA:

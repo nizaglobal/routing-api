@@ -1,6 +1,11 @@
 import sinon, { SinonSpy } from 'sinon'
 import { metric } from '@nizaglobal/smart-order-router/build/main/util/metric'
-import { MetricLoggerUnit, RouteWithQuotes, USDC_MAINNET, WRAPPED_NATIVE_CURRENCY } from '@nizaglobal/smart-order-router'
+import {
+  MetricLoggerUnit,
+  RouteWithQuotes,
+  USDC_MAINNET,
+  WRAPPED_NATIVE_CURRENCY,
+} from '@nizaglobal/smart-order-router'
 import { TrafficSwitchOnChainQuoteProvider } from '../../../../../../lib/handlers/quote/provider-migration/v3/traffic-switch-on-chain-quote-provider'
 import { ChainId, CurrencyAmount } from '@nizaglobal/sdk-core'
 import { V3Route } from '@nizaglobal/smart-order-router/build/main/routers'
