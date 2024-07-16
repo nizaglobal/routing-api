@@ -266,9 +266,8 @@ export const GAS_ERROR_FAILURE_OVERRIDES: { [chainId: number]: FailureOverrides 
     multicallChunk: 5,
   },
   [ChainId.NIZA]: {
-    multicallChunk: 1850,
-    gasLimitPerCall: 80_000,
-    quoteMinSuccessRate: 0.15,
+    gasLimitOverride: 3_000_000,
+    multicallChunk: 45,
   },
   [ChainId.BLAST]: {
     gasLimitOverride: 3_000_000,

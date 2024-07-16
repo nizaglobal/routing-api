@@ -8,7 +8,14 @@ import { ChainId, CurrencyAmount, TradeType } from '@nizaglobal/sdk-core'
 import JSBI from 'jsbi'
 import { FeeAmount, Pool } from '@nizaglobal/v3-sdk'
 import { WNATIVE_ON } from '../../../../../utils/tokens'
-import { CacheMode, CachedRoute, CachedRoutes, UNI_MAINNET, USDC_MAINNET, V3Route } from '@nizaglobal/smart-order-router'
+import {
+  CacheMode,
+  CachedRoute,
+  CachedRoutes,
+  UNI_MAINNET,
+  USDC_MAINNET,
+  V3Route,
+} from '@nizaglobal/smart-order-router'
 import { DynamoDBTableProps } from '../../../../../../bin/stacks/routing-database-stack'
 
 chai.use(chaiAsPromised)

@@ -19,7 +19,7 @@ export function chainIdToNetworkName(networkId: ChainId): string {
     case ChainId.BASE:
       return 'base'
     case ChainId.NIZA:
-      return 'niza';
+      return 'niza'
     default:
       return 'ethereum'
   }
