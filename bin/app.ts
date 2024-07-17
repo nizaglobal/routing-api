@@ -386,8 +386,6 @@ const jsonRpcProviders = {
   // Zora
   QUICKNODE_7777777: process.env.QUICKNODE_7777777!,
   //Niza
-  INFURA_20073: process.env.INFURA_20073!,
-  INFURA_20041: process.env.INFURA_20041!,
 }
 
 // Local dev stack

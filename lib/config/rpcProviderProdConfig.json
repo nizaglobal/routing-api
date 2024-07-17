@@ -6,21 +6,5 @@
     "healthCheckSampleProb": 0.001,
     "providerInitialWeights": [1],
     "providerUrls": ["INFURA_1"]
-  },
-  {
-    "chainId": 20041,
-    "useMultiProviderProb": 1,
-    "latencyEvaluationSampleProb": 0.001,
-    "healthCheckSampleProb": 0.001,
-    "providerInitialWeights": [1],
-    "providerUrls": ["INFURA_20041"]
-  },
-  {
-    "chainId": 20073,
-    "useMultiProviderProb": 1,
-    "latencyEvaluationSampleProb": 0.001,
-    "healthCheckSampleProb": 0.001,
-    "providerInitialWeights": [1],
-    "providerUrls": ["INFURA_20073"]
   }
 ]
