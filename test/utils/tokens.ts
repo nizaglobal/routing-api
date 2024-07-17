@@ -33,6 +33,9 @@ import {
   USDC_BASE,
   USDC_BASE_GOERLI,
   USDC_ZORA,
+  DAI_NIZA,
+  USDT_NIZA,
+  USDC_NIZA,
 } from '@nizaglobal/smart-order-router'
 import { ethers } from 'ethers'
 import NodeCache from 'node-cache'
@@ -85,6 +88,8 @@ export const DAI_ON = (chainId: ChainId): Token => {
       return DAI_BNB
     case ChainId.AVALANCHE:
       return DAI_AVAX
+    case ChainId.NIZA:
+      return DAI_NIZA
     default:
       throw new Error(`Chain id: ${chainId} not supported`)
   }
@@ -102,6 +107,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_ARBITRUM
     case ChainId.BNB:
       return USDT_BNB
+    case ChainId.NIZA:
+      return USDT_NIZA
     default:
       throw new Error(`Chain id: ${chainId} not supported`)
   }
@@ -135,6 +142,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE_GOERLI
     case ChainId.ZORA:
       return USDC_ZORA
+    case ChainId.NIZA:
+      return USDC_NIZA
     default:
       throw new Error(`Chain id: ${chainId} not supported`)
   }
